@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.Stack;
 
 import static java.lang.System.exit;
 
@@ -229,8 +230,31 @@ public BTree()
         transform(x.left);
     }
 
+    public void preOrderTraversal_iter()
+    {
+        Stack<BNode> s = new Stack<BNode>();
+        if(root != null)
+        {
+            s.push(root);
+        }
+        BNode cur;
+        while(!s.empty())
+        {
+            cur = s.pop();
+            System.out.println(cur.data);
+            if(cur.right!=null)
+            {
+                s.push(cur.right);
+            }
+            if(cur.left!=null)
+            {
+                s.push(cur.left);
+            }
+        }
 
+    }
 
+    
 }
 
 public class Main
